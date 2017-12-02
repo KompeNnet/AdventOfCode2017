@@ -11,6 +11,7 @@ namespace Day1_InverseCaptcha
             int[] num = ParseMas(input);
 
             Console.WriteLine(SumOfSameNext(num));
+            Console.WriteLine(SumOfSameInHalf(num));
             Console.ReadLine();
         }
 
@@ -30,6 +31,16 @@ namespace Day1_InverseCaptcha
             for (int i = 0; i < num.Length - 1; i++)
             {
                 if (num[i] == num[i + 1]) sum += num[i];
+            }
+            return sum;
+        }
+
+        private static int SumOfSameInHalf(int[] num)
+        {
+            int sum = 0;
+            for (int i = 0; i < num.Length / 2; i++)
+            {
+                if (num[i] == num[i + num.Length / 2]) sum += num[i] * 2;
             }
             return sum;
         }
