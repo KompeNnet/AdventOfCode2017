@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Day1_InverseCaptcha", "Day1_InverseCaptcha\Day1_InverseCaptcha.csproj", "{EB2AF5E4-B473-4E12-99FD-F6A5BEE045CB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day2_CorruptionChecksum", "Day2_CorruptionChecksum\Day2_CorruptionChecksum.csproj", "{ACA306F9-4ABF-458F-9F81-2FDA2D93E7E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB2AF5E4-B473-4E12-99FD-F6A5BEE045CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2AF5E4-B473-4E12-99FD-F6A5BEE045CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2AF5E4-B473-4E12-99FD-F6A5BEE045CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2AF5E4-B473-4E12-99FD-F6A5BEE045CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACA306F9-4ABF-458F-9F81-2FDA2D93E7E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACA306F9-4ABF-458F-9F81-2FDA2D93E7E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACA306F9-4ABF-458F-9F81-2FDA2D93E7E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACA306F9-4ABF-458F-9F81-2FDA2D93E7E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0BC94B13-E00D-4459-BAB4-996967FC5F55}
+	EndGlobalSection
+EndGlobal
