@@ -2,7 +2,7 @@
 
 namespace Day1_InverseCaptcha
 {
-    class Program
+    class Day1_InverseCaptcha
     {
         static void Main(string[] args)
         {
