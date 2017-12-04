@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace AdventOfCode2017.Day
 {
-    public class Day3_SpiralMemory : IDay
+    internal class Day3_SpiralMemory : IDay
     {
         private int inp;
 
-        public Day3_SpiralMemory(string inp = "50")
+        internal Day3_SpiralMemory(string inp = "50")
         {
             SetInp(inp);
         }

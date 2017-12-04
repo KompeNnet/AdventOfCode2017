@@ -2,11 +2,11 @@
 
 namespace AdventOfCode2017.Day
 {
-    class Day2_CorruptionChecksum : IDay
+    internal class Day2_CorruptionChecksum : IDay
     {
         private int[,] Num { get; set; }
 
-        public Day2_CorruptionChecksum() { }
+        internal Day2_CorruptionChecksum() { }
 
         public void SetInp(string inp)
         {

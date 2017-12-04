@@ -2,11 +2,11 @@
 
 namespace AdventOfCode2017.Day
 {
-    class Day1_InverseCaptcha : IDay
+    internal class Day1_InverseCaptcha : IDay
     {
         private int[] num;
 
-        public Day1_InverseCaptcha(string inp = "138962597235")
+        internal Day1_InverseCaptcha(string inp = "138962597235")
         {
             SetInp(inp);
         }
