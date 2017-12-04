@@ -7,7 +7,12 @@ namespace AdventOfCode2017.Day
     {
         private int inp;
 
-        public Day3_SpiralMemory(string inp = "50" )
+        public Day3_SpiralMemory(string inp = "50")
+        {
+            SetInp(inp);
+        }
+
+        public void SetInp(string inp)
         {
             this.inp = int.Parse(inp);
         }
@@ -66,7 +71,6 @@ namespace AdventOfCode2017.Day
                     num.Add(num[0] + num[1] + num[2] + num[num.Count - 1]);
                     num.RemoveAt(0);
                 }
-                Console.Write(num[num.Count - 1] + " - ");
                 (i, size) = CheckSize(i, size);
             }
             return num[num.Count - 1].ToString();

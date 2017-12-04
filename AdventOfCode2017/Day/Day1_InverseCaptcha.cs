@@ -1,21 +1,28 @@
-﻿namespace AdventOfCode2017.Day
+﻿using System.Reflection;
+
+namespace AdventOfCode2017.Day
 {
     class Day1_InverseCaptcha : IDay
     {
-        private int[] Num { get; set; }
+        private int[] num;
 
         public Day1_InverseCaptcha(string inp = "138962597235")
         {
-            inp += inp[0];
-            Num = ParseMas(inp);
+            SetInp(inp);
         }
 
+        public void SetInp(string inp)
+        {
+            inp += inp[0];
+            num = ParseMas(inp);
+        }
+                
         public string FirstTask()
         {
             int sum = 0;
-            for (int i = 0; i < Num.Length - 1; i++)
+            for (int i = 0; i < num.Length - 1; i++)
             {
-                if (Num[i] == Num[i + 1]) sum += Num[i];
+                if (num[i] == num[i + 1]) sum += num[i];
             }
             return sum.ToString();
         }
@@ -23,9 +30,9 @@
         public string SecondTask()
         {
             int sum = 0;
-            for (int i = 0; i < Num.Length / 2; i++)
+            for (int i = 0; i < num.Length / 2; i++)
             {
-                if (Num[i] == Num[i + Num.Length / 2]) sum += Num[i] * 2;
+                if (num[i] == num[i + num.Length / 2]) sum += num[i] * 2;
             }
             return sum.ToString();
         }

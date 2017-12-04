@@ -6,6 +6,7 @@ namespace AdventOfCode2017
 {
     interface IDay
     {
+        void SetInp(string inp);
         string FirstTask();
         string SecondTask();
     }
