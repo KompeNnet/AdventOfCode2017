@@ -13,7 +13,7 @@ namespace AdventOfCode2017
             //for (int i = 0; i < Manager.Count; i++)
             //{
             //    day = Manager.GetDay(i);
-            //    day.SetInp(File.ReadAllText(".\\input\\" + (i + 1) + ".txt"));
+            //    day.SetFile(".\\input\\" + (i + 1) + ".txt");
 
             //    Console.WriteLine("Day {0}:", i + 1);
             //    Console.WriteLine("\t{0}", day.FirstTask());
@@ -22,10 +22,10 @@ namespace AdventOfCode2017
 
             int i = 3;
             day = Manager.GetDay(i);
-            day.SetInp(".\\input\\" + (i + 1) + ".txt");
+            day.SetFile(".\\input\\" + (i + 1) + ".txt");
             Console.WriteLine("Day {0}:", i + 1);
             Console.WriteLine("\t{0}", day.FirstTask());
-            //Console.WriteLine("\t{0}\n", day.SecondTask());
+            Console.WriteLine("\t{0}\n", day.SecondTask());
 
             Console.ReadLine();
         }

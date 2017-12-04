@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace AdventOfCode2017
+﻿namespace AdventOfCode2017
 {
     interface IDay
     {
-        void SetInp(string inp);
+        void SetFile(string path);
         string FirstTask();
         string SecondTask();
     }

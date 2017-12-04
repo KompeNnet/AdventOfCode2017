@@ -1,49 +1,59 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.IO;
+using System.Text.RegularExpressions;
 
 namespace AdventOfCode2017.Day
 {
     internal class Day2_CorruptionChecksum : IDay
     {
-        private int[,] Num { get; set; }
+        private StreamReader fReader;
 
         internal Day2_CorruptionChecksum() { }
 
-        public void SetInp(string inp)
+        public void SetFile(string path)
         {
-            inp = Regex.Replace(inp, "[ \t]+", " ");
-            Num = ParseMas(inp);
+            fReader = new StreamReader(path);
         }
 
         public string FirstTask()
         {
+            string str = fReader.ReadLine();
             int result = 0;
-            for (int i = 0; i < Num.Length / (Num.GetUpperBound(0) + 1); i++)
+
+            while (str != null)
             {
+                if (str == "") break;
+                int[] num = ParseMas(str);
                 int max, min;
-                max = min = Num[i,0];
-                for (int j = 1; j < Num.GetUpperBound(0) + 1; j++)
+                max = min = num[0];
+                for (int i = 0; i < num.Length; i++)
                 {
-                    int num = Num[i,j];
-                    min = num < min ? num : min;
-                    max = num > max ? num : max;
+                    int curr = num[i];
+                    min = curr < min ? curr : min;
+                    max = curr > max ? curr : max;
                 }
                 result += max - min;
+                str = fReader.ReadLine();
             }
+            fReader.BaseStream.Position = 0;
             return result.ToString();
         }
 
         public string SecondTask()
         {
+            string str = fReader.ReadLine();
             int result = 0;
-            for (int i = 0; i < Num.Length / (Num.GetUpperBound(0) + 1); i++)
+
+            while (str != null)
             {
+                if (str == "") break;
+                int[] num = ParseMas(str);
                 int first = 0, second = 0;
-                for (int j = 0; j < Num.GetUpperBound(0); j++)
+                for (int i = 0; i < num.Length - 1; i++)
                 {
-                    int a = Num[i,j], b;
-                    for (int k = j + 1; k < Num.GetUpperBound(0) + 1; k++)
+                    int a = num[i], b;
+                    for (int j = i + 1; j < num.Length; j++)
                     {
-                        b = Num[i, k];
+                        b = num[j];
                         if (a % b == 0 || b % a == 0)
                         {
                             first = a;
@@ -52,25 +62,22 @@ namespace AdventOfCode2017.Day
                     }
                 }
                 result += first > second ? first / second : second / first;
+                str = fReader.ReadLine();
             }
+            fReader.BaseStream.Position = 0;
             return result.ToString();
         }
 
-        private int[,] ParseMas(string inp)
+        private int[] ParseMas(string inp)
         {
-            string[] row = inp.Split("\n");
-            string[][] str = new string[16][];
-            for (int i = 0; i < row.Length; i++)
+            inp = Regex.Replace(inp, "[ \t]+", " ");
+            string[] str = inp.Split(" ");
+            int[] num = new int[str.Length];
+            for (int i = 0; i < str.Length; i++)
             {
-                str[i] = row[i].Split(" ");
+                num[i] = int.Parse(str[i]);
             }
-            int[,] mas = new int[16,16];
-            for (int i = 0; i < str.GetUpperBound(0) + 1; i++)
-            {
-                for (int j = 0; j < str.Length; j++)
-                    mas[i,j] = int.Parse(str[i][j]);
-            }
-            return mas;
+            return num;
         }
     }
 }

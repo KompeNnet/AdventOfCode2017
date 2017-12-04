@@ -1,26 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace AdventOfCode2017.Day
 {
     internal class Day4_HighEntropyPassphrases : IDay
     {
-        StreamReader fStream;
+        StreamReader fReader;
 
         internal Day4_HighEntropyPassphrases() { }
 
-        public void SetInp(string inp)
+        public void SetFile(string path)
         {
-            fStream = new StreamReader(inp);
+            fReader = new StreamReader(path);
         }
 
         public string FirstTask()
         {
             int result = 0;
-            string pass = fStream.ReadLine();
+            string pass = fReader.ReadLine();
 
             while (pass != null)
             {
@@ -37,9 +35,9 @@ namespace AdventOfCode2017.Day
                     }
                 }
                 if (valid) result++;
-                pass = fStream.ReadLine();
+                pass = fReader.ReadLine();
             }
-
+            fReader.BaseStream.Position = 0;
             return result.ToString();
         }
 
