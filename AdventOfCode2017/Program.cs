@@ -19,6 +19,7 @@ namespace AdventOfCode2017
 
             day = new Day3_SpiralMemory("325489");
             Console.WriteLine(day.FirstTask());
+            Console.WriteLine(day.SecondTask());
 
             Console.ReadLine();
         }
