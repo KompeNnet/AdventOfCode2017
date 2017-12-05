@@ -20,6 +20,7 @@ namespace AdventOfCode2017
             dayList.Add(new Day2_CorruptionChecksum());
             dayList.Add(new Day3_SpiralMemory());
             dayList.Add(new Day4_HighEntropyPassphrases());
+            dayList.Add(new Day5_AMazeofTwistyTrampolines_AllAlike());
         }
 
         public static IDay GetDay(int i)

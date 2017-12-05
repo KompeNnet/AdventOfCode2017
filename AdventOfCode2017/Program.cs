@@ -20,7 +20,7 @@ namespace AdventOfCode2017
             //    Console.WriteLine("\t{0}\n", day.SecondTask());
             //}
 
-            int i = 3;
+            int i = 4;
             day = Manager.GetDay(i);
             day.SetFile(".\\input\\" + (i + 1) + ".txt");
             Console.WriteLine("Day {0}:", i + 1);
