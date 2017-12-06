@@ -5,16 +5,27 @@ namespace AdventOfCode2017.Day
 {
     internal class Day2_CorruptionChecksum : IDay
     {
+        private delegate int CheckSumDelegate(int[] num);
         private StreamReader fReader;
 
         internal Day2_CorruptionChecksum() { }
+
+        public string FirstTask()
+        {
+            return GetCheckSum(CheckSubSum);
+        }
+
+        public string SecondTask()
+        {
+            return GetCheckSum(CheckDivSum);
+        }
 
         public void SetFile(string path)
         {
             fReader = new StreamReader(path);
         }
 
-        public string FirstTask()
+        private string GetCheckSum(CheckSumDelegate funk)
         {
             string str = fReader.ReadLine();
             int result = 0;
@@ -22,50 +33,44 @@ namespace AdventOfCode2017.Day
             while (str != null)
             {
                 if (str == "") break;
-                int[] num = ParseMas(str);
-                int max, min;
-                max = min = num[0];
-                for (int i = 0; i < num.Length; i++)
-                {
-                    int curr = num[i];
-                    min = curr < min ? curr : min;
-                    max = curr > max ? curr : max;
-                }
-                result += max - min;
+                int[] num = ParseMas(str);                
+                result += funk(num);
                 str = fReader.ReadLine();
             }
             fReader.BaseStream.Position = 0;
             return result.ToString();
         }
 
-        public string SecondTask()
+        private int CheckSubSum(int[] num)
         {
-            string str = fReader.ReadLine();
-            int result = 0;
-
-            while (str != null)
+            int max, min;
+            max = min = num[0];
+            for (int i = 0; i < num.Length; i++)
             {
-                if (str == "") break;
-                int[] num = ParseMas(str);
-                int first = 0, second = 0;
-                for (int i = 0; i < num.Length - 1; i++)
+                int curr = num[i];
+                min = curr < min ? curr : min;
+                max = curr > max ? curr : max;
+            }
+            return max - min;
+        }
+
+        private int CheckDivSum(int[] num)
+        {
+            int first = 0, second = 0;
+            for (int i = 0; i < num.Length - 1; i++)
+            {
+                int a = num[i], b;
+                for (int j = i + 1; j < num.Length; j++)
                 {
-                    int a = num[i], b;
-                    for (int j = i + 1; j < num.Length; j++)
+                    b = num[j];
+                    if (a % b == 0 || b % a == 0)
                     {
-                        b = num[j];
-                        if (a % b == 0 || b % a == 0)
-                        {
-                            first = a;
-                            second = b;
-                        }
+                        first = a;
+                        second = b;
                     }
                 }
-                result += first > second ? first / second : second / first;
-                str = fReader.ReadLine();
             }
-            fReader.BaseStream.Position = 0;
-            return result.ToString();
+            return first > second ? first / second : second / first;
         }
 
         private int[] ParseMas(string inp)

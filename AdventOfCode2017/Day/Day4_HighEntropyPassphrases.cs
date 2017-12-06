@@ -11,11 +11,6 @@ namespace AdventOfCode2017.Day
 
         internal Day4_HighEntropyPassphrases() { }
 
-        public void SetFile(string path)
-        {
-            fReader = new StreamReader(path);
-        }
-
         public string FirstTask()
         {
             return CountValid(SplitWords);
@@ -24,6 +19,11 @@ namespace AdventOfCode2017.Day
         public string SecondTask()
         {
             return CountValid(SortLetter);
+        }
+
+        public void SetFile(string path)
+        {
+            fReader = new StreamReader(path);
         }
 
         private string CountValid(FormattingDelegate func)

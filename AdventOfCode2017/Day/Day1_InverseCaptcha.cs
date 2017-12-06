@@ -4,44 +4,53 @@ namespace AdventOfCode2017.Day
 {
     internal class Day1_InverseCaptcha : IDay
     {
+        private delegate int SumDelegate(int[] mas);
         private StreamReader fReader;
-        private int[] num;
 
         internal Day1_InverseCaptcha() { }
+                
+        public string FirstTask()
+        {
+            return GetSum(SumOfSameNext);
+        }
+
+        public string SecondTask()
+        {
+            return GetSum(SumOfSameInHalf);
+        }
         
         public void SetFile(string path)
         {
             fReader = new StreamReader(path);
         }
-                
-        public string FirstTask()
+
+        private string GetSum(SumDelegate funk)
         {
             string inp = fReader.ReadLine();
             inp += inp[0];
-            num = ParseMas(inp);
+            int[] num = ParseMas(inp);
+            fReader.BaseStream.Position = 0;
+            return funk(num).ToString();
+        }
 
+        private int SumOfSameNext(int[] num)
+        {
             int sum = 0;
             for (int i = 0; i < num.Length - 1; i++)
             {
                 if (num[i] == num[i + 1]) sum += num[i];
             }
-            fReader.BaseStream.Position = 0;
-            return sum.ToString();
+            return sum;
         }
 
-        public string SecondTask()
+        private int SumOfSameInHalf(int[] num)
         {
-            string inp = fReader.ReadLine();
-            inp += inp[0];
-            num = ParseMas(inp);
-
             int sum = 0;
             for (int i = 0; i < num.Length / 2; i++)
             {
                 if (num[i] == num[i + num.Length / 2]) sum += num[i] * 2;
             }
-            fReader.BaseStream.Position = 0;
-            return sum.ToString();
+            return sum;
         }
 
         private int[] ParseMas(string inp)

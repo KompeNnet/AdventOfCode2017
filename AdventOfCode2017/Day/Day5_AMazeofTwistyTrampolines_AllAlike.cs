@@ -10,11 +10,6 @@ namespace AdventOfCode2017.Day
 
         internal Day5_AMazeofTwistyTrampolines_AllAlike() { }
 
-        public void SetFile(string path)
-        {
-            fReader = new StreamReader(path);
-        }
-
         public string FirstTask()
         {
             return GetCount(ByOnlyGrowing);
@@ -23,6 +18,11 @@ namespace AdventOfCode2017.Day
         public string SecondTask()
         {
             return GetCount(By3InMiddle);
+        }
+
+        public void SetFile(string path)
+        {
+            fReader = new StreamReader(path);
         }
 
         private string GetCount(CountDelegate func)

@@ -2,8 +2,8 @@
 {
     interface IDay
     {
-        void SetFile(string path);
         string FirstTask();
         string SecondTask();
+        void SetFile(string path);
     }
 }
