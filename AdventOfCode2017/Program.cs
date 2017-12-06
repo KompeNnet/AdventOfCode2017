@@ -1,6 +1,4 @@
 ﻿using System;
-using AdventOfCode2017.Day;
-using System.IO;
 
 namespace AdventOfCode2017
 {
